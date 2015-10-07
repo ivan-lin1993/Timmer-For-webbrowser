@@ -7,3 +7,6 @@ C:\Users\USER\Desktop\Timmer\Timmer\Timmer\obj\Debug\Timmer.csproj.GenerateResou
 C:\Users\USER\Desktop\Timmer\Timmer\Timmer\obj\Debug\Timmer.exe
 C:\Users\USER\Desktop\Timmer\Timmer\Timmer\obj\Debug\Timmer.pdb
 C:\Users\USER\Desktop\Timmer\Timmer\Timmer\obj\Debug\Timmer.Form1.resources
+H:\Ivan\hack\Timmer-For-webbrowser\Timmer\bin\Debug\Timmer.exe.config
+H:\Ivan\hack\Timmer-For-webbrowser\Timmer\obj\Debug\Timmer.exe
+H:\Ivan\hack\Timmer-For-webbrowser\Timmer\obj\Debug\Timmer.pdb
