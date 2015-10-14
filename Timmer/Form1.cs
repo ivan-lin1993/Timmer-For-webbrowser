@@ -19,8 +19,8 @@ namespace Timmer
     public partial class Form1 : Form
     {
         string dir = Directory.GetCurrentDirectory();
-        string exemwb = "\"C:\\Windows\\System32\\mwb.exe\"";
-        string exeTimmer = "\"C:\\Windows\\System32\\Timmer.exe\"";
+        string exemwb = "\"C:\\tmp\\timmer\\mwb.exe\"";
+        string exeTimmer = "\"C:\\tmp\\timmer\\Timmer.exe\"";
         public Form1()
         {
             InitializeComponent();
