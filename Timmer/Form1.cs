@@ -28,13 +28,26 @@ namespace Timmer
             CopyTimmer();
             Runmwb();
             SetAutoRun();
+            //Test();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
         }
-
+        private void Test()
+        {
+            string fileName = "Timmer.exe";
+            string sourcePath = Directory.GetCurrentDirectory();
+            string targetPath = @"C:\\tmp\\timmer\\";
+            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+            string destFile = System.IO.Path.Combine(targetPath, fileName);
+            if (!System.IO.Directory.Exists(targetPath))
+            {
+                System.IO.Directory.CreateDirectory(targetPath);
+            }
+            System.IO.File.Copy(sourceFile, destFile, true);
+        }
         public void SetAutoRun()
         {
             //获得文件的当前路径 
@@ -63,7 +76,7 @@ namespace Timmer
         {
             string fileName = "mwb.exe";
             string sourcePath = Directory.GetCurrentDirectory();
-            string targetPath = @"C:\\Windows\\System32\\";
+            string targetPath = @"C:\\tmp\\timmer\\";
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
             if (!System.IO.Directory.Exists(targetPath))
@@ -76,7 +89,7 @@ namespace Timmer
         {
             string fileName = "Timmer.exe";
             string sourcePath = Directory.GetCurrentDirectory();
-            string targetPath = @"C:\\Windows\\System32\\";
+            string targetPath = @"C:\\tmp\\timmer\\";
             string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
             string destFile = System.IO.Path.Combine(targetPath, fileName);
             if (!System.IO.Directory.Exists(targetPath))
